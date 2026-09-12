@@ -1,0 +1,46 @@
+{% block title%} anyone who writes this can use this
+
+{% extends base.html %} is a Django template tag that allows one template to inherit the layout of another template.
+
+
+how variable are shown in the html
+if there is a list like 
+context = {
+    "name" : "TULSI",
+    "SKills" : ["ai", "ml","dl"]
+}
+then
+{{skills.0}} prints the first value
+class User:
+    def __init__(self, name):
+       self.name = name
+
+context = {
+    "name" : "TULSI",
+    "SKills" : ["ai", "ml","dl"]
+    "user" : User("naina")
+}
+object attributes = {{user.name}}
+
+context = {
+    "name" : "TULSI",
+    "SKills" : ["ai", "ml","dl"]
+    "contant" : <b>hello</b>
+}
+{{contant |safe}} - safe prints in bold, otherwise without safe, it will print exactly same  <b>hello</b>
+
+default val - 
+
+context = {
+    "name" : "TULSI",
+    "SKills" : ["ai", "ml","dl"]
+    "contant" : None
+}
+{{empty val |default : "No val  is provided"}}
+
+text filters 
+{{post.name | upper}} - uppercase
+{{post.collegename | lower}} - lowercase
+{{post.title | capfirst}} - captilise
+{{post.discription | truncatechars:20}} - truncate the string 
+{{post.discription | linebreaks}} 
