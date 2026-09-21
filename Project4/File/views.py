@@ -23,7 +23,7 @@ def view_profile(request):
     return render(request, 'accounts/view_profile.html', {'profiles': profiles})
 
 def post(request):
-    posts = Post.objects.all().order_by('id')
+    posts = Post.objects.all()
     paginator = Paginator(posts, 1)
     page_num = request.GET.get('page')
     page_obj = paginator.get_page(page_num)

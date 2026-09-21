@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -9,3 +10,4 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')  
+
