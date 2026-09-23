@@ -13,6 +13,7 @@ class Student(models.Model):
 class Post(models.Model):
     title = models.CharField()
     content = models.CharField()
+    category = models.CharField(blank=True)
 
     def __str__(self):
         return self.title

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="GET">
+    <input type="text", name='q', placeholder="search..", value='{{ query }}'>
+    <select name="category" >
+        <option value="">ALL</option>
+        <option value="Avenger" {% if category == "Avenger" %} selected {% endif %}>Avenger</option>
+        <option value="Fun" {% if category == "Fun" %} selected {% endif %}>Fun</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
+<ul>
+    {{post.title}}
+    {{post.content}}
+</ul>
+{% endblock  %}
