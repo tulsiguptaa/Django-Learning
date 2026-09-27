@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
+from django.http import HttpResponse
 
 class PostList(ListView):
     model = Post
@@ -27,3 +28,6 @@ class PostDelete(DeleteView):
     model = Post
     template_name = 'blog/post_delete.html'
     success_url = reverse_lazy('post_list')
+
+def home_view(request):
+    return HttpResponse("Middleware")
