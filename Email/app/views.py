@@ -1,5 +1,6 @@
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django.http import HttpResponse
+from django.template.loader import render_to_string
 
 
 def send_email(request):
@@ -12,3 +13,11 @@ def send_email(request):
     )
 
     return HttpResponse("Email sent successfully")
+
+def send_email_msg(request):
+    subject="Django Test"
+    message=render_to_string('email/welcome.html', {'username':'Tulsi', 'course': 'django'})
+    email = EmailMessage(subject, message, None, ['nnainagupta836@gmail.com'])
+    email.content_subtype = "html"
+    email.send()
+    return HttpResponse("send")
