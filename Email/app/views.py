@@ -1,4 +1,4 @@
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail, EmailMessage, send_mass_mail
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 
@@ -21,3 +21,10 @@ def send_email_msg(request):
     email.content_subtype = "html"
     email.send()
     return HttpResponse("send")
+
+def bulk_email(request):
+    msg1 = ('welcome', 'hello', None, ['nnainagupta836@gmail.com'])
+    msg2 = ('welcome', 'ironman', None, ['ironman9026@gmail.com'])
+
+    send_mass_mail((msg1, msg2), fail_silently=False)
+    return HttpResponse("Success")
