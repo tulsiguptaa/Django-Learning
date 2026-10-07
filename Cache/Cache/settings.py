@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'app1',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,11 @@ STATIC_URL = 'static/'
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "my-cache",
-    }
+        "LOCATION": "my-memory-cache",
+    },
+
+    "file_cache": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": BASE_DIR / "django_cache",
+    },
 }
