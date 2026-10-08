@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'app1',
     'app2',
+    'app3',
 ]
 
 MIDDLEWARE = [
@@ -128,5 +129,9 @@ CACHES = {
     "file_cache": {
         "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
         "LOCATION": BASE_DIR / "django_cache",
+    },
+    "databse_cache": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "my_cache_table",
     },
 }

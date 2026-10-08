@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('app.urls')),
     path('file/', include('app1.urls')),
     path('fragment/', include('app2.urls')),
+    path('db/', include('app3.urls')),
 
 ]
