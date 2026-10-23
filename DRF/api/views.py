@@ -40,3 +40,11 @@ def delete_student(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
     student.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+from rest_framework.viewsets import ModelViewSet
+from .models import Student
+from .serializers import StudentSerializer
+
+class StudentViewSet(ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
